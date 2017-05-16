@@ -1,0 +1,80 @@
+
+EXEC [dboEvent].[spInsertIntoCities] 'Multan',1,1
+
+EXEC [dboEvent].[spInsertIntoLocations] 60000,1,1,1,'multan'
+
+EXEC	 [dboEvent].[spBudapestTrackPresentations]
+		@trackId = 1
+
+EXEC	 [dboEvent].[spInsertIntoDifficultyLevels]
+		@difficultyLevelTitle = N'Expert',
+		@difficultyLevelStatus = 1
+
+EXEC [dboEvent].[spInsertIntoEvents]
+		@eventTitle = N'Database Designing',
+		@locationId = 1,
+		@eDateTime = '2017/01/01',
+		@eStatus = 1
+
+EXEC	 [dboEvent].[spInsertIntoPersons]
+		@firstName = N'Zubair',
+		@lastName = N'Ahmed',
+		@Gender = N'M',
+		@emailId = N'zubair123@gmail.com',
+		@contactNo = N'123',
+		@locationId = 1,
+		@status = 1,
+		@createdOn = NULL
+
+EXEC	[dboEvent].[spInsertIntoClasses]
+		@ClassTitle = N'New Class1',
+		@Description = N'dfasf',
+		@DurationInMinutes = 60,
+		@DifficultyLevelId = 1,
+		@ClassDateTime = N'2017/01/01',
+		@ClassStatus = 1
+
+EXEC	 [dboEvent].[spInsertIntoPresentationBindWithClass]
+		@classId = 1,
+		@personId = 1,
+		@status = 1
+
+EXEC	 [dboEvent].[spInsertIntoRoles]
+		@RoleName = N'Organizer',
+		@RoleDiscription = N'dfasdf',
+		@RoleStatus = 1
+
+EXEC	 [dboEvent].[spInsertIntoRoles]
+		@RoleName = N'Presenter',
+		@RoleDiscription = N'dfasdf',
+		@RoleStatus = 1
+
+
+EXEC	[dboEvent].[spInsertIntoRoleAssign]
+		@roleId = 2,
+		@personId = 2,
+		@oleAssignStatus = 1
+
+EXEC	 [dboEvent].[spInsertIntoVenues]
+		@VenueTitle = N'Lahore',
+		@LocationId = 2,
+		@VenueStatus = 1
+
+EXEC	 [dboEvent].[spInsertIntoRoomsBindWithVenue]
+		@VenueId = 1,
+		@RoomId = 2,
+		@BindingStatus = 1
+
+EXEC	 [dboEvent].[spInsertIntoPresentationSchedule]
+		@eventId = 2,
+		@presenterBindWithClassId = 1,
+		@roomsBindWithVenueId = 1,
+		@scheduleStatus = 1
+
+
+EXEC	 [dboEvent].[spBudapestTrackPresentations]
+		@trackId = 1
+
+EXEC	[dboEvent].[spSelectSpeakerPresentation]
+		@speakerFirstName = N'Zubair',
+		@speakerLastName = N'Ahmed'
